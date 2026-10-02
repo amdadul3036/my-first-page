@@ -1,77 +1,148 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> AI DEVELOPMENT প্রথম ওয়েবসাইট</title>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Hind Siliguri", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .card {
-      background: var(--card);
-      max-width: 520px;
-      width: 100%;
-      padding: 40px 32px;
-      border-radius: 20px;
-      text-align: center;
-      border: 1px solid #334155;
-    }
-    .badge {
-      display: inline-block;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 4px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    h1 { font-size: 32px; margin-bottom: 12px; }
-    p { color: var(--muted); font-size: 18px; line-height: 1.7; margin-bottom: 28px; }
-    button {
-      font-family: inherit;
-      font-size: 18px;
-      font-weight: 600;
-      background: var(--accent);
-      color: #0f172a;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 12px;
-      cursor: pointer;
-    }
-    button:hover { opacity: 0.9; }
-    #msg { margin-top: 24px; min-height: 28px; font-size: 18px; color: var(--accent); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AI দিয়ে ওয়েবসাইট ও অ্যাপ বানানোর ধাপে ধাপে গাইড, নন-ডেভেলপারদের জন্য।">
+<title>বিল্ডার গাইড</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1220; --surface:#131c2e; --line:#243049;
+  --text:#eef2f8; --muted:#9aa7bd;
+  --accent:#38bdf8; --accent2:#a78bfa;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Hind Siliguri",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:17px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font-weight:700;font-size:20px}
+.logo span{color:var(--accent)}
+nav{display:flex;align-items:center;gap:20px}
+nav a{color:var(--muted);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--text)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:14px;font-weight:600;background:none;color:var(--muted);border:0;padding:6px 14px;cursor:pointer}
+.lang button.on{background:var(--accent);color:#0b1220}
+.hero{padding:88px 0 64px;text-align:center}
+.pill{display:inline-block;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:4px 16px;font-size:14px;margin-bottom:22px}
+h1{font-size:clamp(32px,6vw,56px);line-height:1.25;margin-bottom:18px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:19px;max-width:620px;margin:0 auto 32px}
+.btn{display:inline-block;background:var(--accent);color:#0b1220;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:12px}
+.btn:hover{opacity:.9}
+section{padding:56px 0}
+h2{font-size:30px;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.card .n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(56,189,248,.14);color:var(--accent);font-weight:700;margin-bottom:12px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15.5px}
+.about{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px;max-width:720px}
+.about p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+@media(max-width:560px){nav a{display:none}.hero{padding:56px 0 40px}}
+</style>
 </head>
 <body>
-  <main class="card">
-    <span class="badge">লাইভ ✓</span>
-    <h1> AI Development ওয়েবসাইট</h1>
-    <p>এই পেজটা আমি নিজে ইন্টারনেটে তুলেছি। এখান থেকেই আমার বিল্ডার হওয়ার যাত্রা শুরু।</p>
-    <button onclick="sayHello()">এখানে ক্লিক করুন</button>
-    <div id="msg"></div>
-  </main>
+<header>
+  <div class="wrap bar">
+    <div class="logo">🛠️ <span id="brand"></span></div>
+    <nav>
+      <a href="#steps" data-i="navSteps"></a>
+      <a href="#about" data-i="navAbout"></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button id="b-bn" onclick="setLang('bn')">বাং</button>
+        <button id="b-en" onclick="setLang('en')">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-  <script>
-    function sayHello() {
-      document.getElementById("msg").textContent = "অভিনন্দন! আপনার বাটন কাজ করছে 🎉";
-    }
-  </script>
+<main>
+  <div class="wrap hero">
+    <span class="pill" data-i="pill"></span>
+    <h1 id="h1"></h1>
+    <p data-i="sub"></p>
+    <a class="btn" href="#steps" data-i="cta"></a>
+  </div>
+
+  <section id="steps">
+    <div class="wrap">
+      <h2 data-i="stepsTitle"></h2>
+      <p class="sub" data-i="stepsSub"></p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <h2 data-i="aboutTitle"></h2>
+        <p data-i="aboutText"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap" data-i="footer"></div></footer>
+
+<script>
+const T = {
+  bn:{
+    title:"বিল্ডার গাইড", brand:"বিল্ডার গাইড", navSteps:"ধাপসমূহ", navAbout:"সম্পর্কে",
+    pill:"নন-ডেভেলপারদের জন্য",
+    sub:"কোড না জেনেও AI-র সাথে ওয়েবসাইট ও অ্যাপ বানানো শিখুন। প্রতিটা ধাপে একটা করে কাজ করা জিনিস আপনার হাতে থাকবে।",
+    cta:"ধাপগুলো দেখুন",
+    stepsTitle:"ধাপে ধাপে পথ", stepsSub:"শূন্য থেকে নিজের লাইভ অ্যাপ পর্যন্ত আটটি ধাপ।",
+    aboutTitle:"এই গাইড কেন?",
+    aboutText:"এই গাইডটা একজন নন-ডেভেলপারের শেখার যাত্রা থেকে তৈরি। যেখানে আমি নিজে আটকে গিয়েছিলাম, সেখানেই সহজ করে বোঝানোর চেষ্টা করেছি।",
+    footer:"© ২০২৬ বিল্ডার গাইড"
+  },
+  en:{
+    title:"Builder Guide", brand:"Builder Guide", navSteps:"Steps", navAbout:"About",
+    pill:"For non-developers",
+    sub:"Learn to build websites and apps with AI, even if you don't know how to code. Every step leaves you with something that actually works.",
+    cta:"See the steps",
+    stepsTitle:"The path, step by step", stepsSub:"Eight steps from zero to your own live app.",
+    aboutTitle:"Why this guide?",
+    aboutText:"This guide comes from the learning journey of a non-developer. Wherever I got stuck myself, I tried to explain it simply.",
+    footer:"© 2026 Builder Guide"
+  }
+};
+const STEPS = [
+  {bn:["অ্যাকাউন্ট প্রস্তুত","GitHub, Vercel ও Supabase অ্যাকাউন্ট খোলা।"],en:["Set up accounts","Create your GitHub, Vercel and Supabase accounts."]},
+  {bn:["প্রথম লাইভ পেজ","একটা পেজ বানিয়ে নিজের লিংকে প্রকাশ করা।"],en:["Your first live page","Build a page and publish it at your own link."]},
+  {bn:["টপ ক্লাস ডিজাইন","রং, ফন্ট ও ফাঁকা জায়গার নিয়ম।"],en:["Top-class design","Rules for colour, type and spacing."]},
+  {bn:["ইন্টারঅ্যাকশন","ফর্ম, বাটন ও কম্পোনেন্ট।"],en:["Interactivity","Forms, buttons and components."]},
+  {bn:["ডাটাবেস ও লগইন","ইউজারের তথ্য সেভ ও সাইনআপ সিস্টেম।"],en:["Database and login","Saving user data and building sign-up."]},
+  {bn:["SaaS-এর মূল অংশ","সাবস্ক্রিপশন, পেমেন্ট ও ইউজারের ধরন।"],en:["SaaS essentials","Subscriptions, payments and user roles."]},
+  {bn:["ভুল ধরা ও ঠিক করা","এরর পড়া ও AI-কে সঠিকভাবে সাহায্য চাওয়া।"],en:["Finding and fixing bugs","Reading errors and asking AI the right way."]},
+  {bn:["লঞ্চ ও ইউজার","প্রকাশ করা এবং প্রথম ইউজার জোগাড়।"],en:["Launch and users","Go live and find your first users."]}
+];
+function setLang(l){
+  const t=T[l];
+  document.documentElement.lang=l;
+  document.title=t.title;
+  document.getElementById("brand").textContent=t.brand;
+  document.querySelectorAll("[data-i]").forEach(el=>{el.textContent=t[el.dataset.i]});
+  document.getElementById("h1").innerHTML = l==="bn"
+    ? "AI দিয়ে <em>নিজের অ্যাপ</em> বানান"
+    : "Build your own <em>app</em> with AI";
+  document.getElementById("grid").innerHTML = STEPS.map((s,i)=>
+    `<div class="card"><div class="n">${i}</div><h3>${s[l][0]}</h3><p>${s[l][1]}</p></div>`).join("");
+  document.getElementById("b-bn").classList.toggle("on",l==="bn");
+  document.getElementById("b-en").classList.toggle("on",l==="en");
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+let start="bn";
+try{start=localStorage.getItem("lang")||"bn"}catch(e){}
+setLang(start);
+</script>
 </body>
 </html>
