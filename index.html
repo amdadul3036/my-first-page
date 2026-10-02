@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>আমার প্রথম ওয়েবসাইট</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hind Siliguri", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: var(--card);
+      max-width: 520px;
+      width: 100%;
+      padding: 40px 32px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #334155;
+    }
+    .badge {
+      display: inline-block;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 32px; margin-bottom: 12px; }
+    p { color: var(--muted); font-size: 18px; line-height: 1.7; margin-bottom: 28px; }
+    button {
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 600;
+      background: var(--accent);
+      color: #0f172a;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover { opacity: 0.9; }
+    #msg { margin-top: 24px; min-height: 28px; font-size: 18px; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">লাইভ ✓</span>
+    <h1>আমার প্রথম ওয়েবসাইট</h1>
+    <p>এই পেজটা আমি নিজে ইন্টারনেটে তুলেছি। এখান থেকেই আমার বিল্ডার হওয়ার যাত্রা শুরু।</p>
+    <button onclick="sayHello()">এখানে ক্লিক করুন</button>
+    <div id="msg"></div>
+  </main>
+
+  <script>
+    function sayHello() {
+      document.getElementById("msg").textContent = "অভিনন্দন! আপনার বাটন কাজ করছে 🎉";
+    }
+  </script>
+</body>
+</html>
